@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.zeko.diceroller.ui.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:context=".ui.MainActivity">
+
+
+        <ImageView
+            android:id="@+id/ivDice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/dice_img_desc"
+            app:drawableId ="@{viewModel.currImg}" />
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_margin="30dp"
+            android:text="@{``+viewModel.currNumber}"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btnRoll"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:text="@string/roll"
+            android:onClick="@{() -> viewModel.clickRoll()}"/>
+
+
+    </LinearLayout>
+</layout>
